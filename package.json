@@ -1,5 +1,5 @@
 {
-  "name": "steno.x",
+  "name": "writerx",
   "version": "1.0.7",
   "description": "Fast atomic file writer inspired by steno - 2-3x faster with the same reliability",
   "main": "./dist/index.js",
@@ -30,12 +30,12 @@
   "author": "Shuruhatik",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shuruhatik/steno.x.git"
+    "url": "git+https://github.com/Shuruhatik/writerx.git"
   },
   "bugs": {
-    "url": "https://github.com/Shuruhatik/steno.x/issues"
+    "url": "https://github.com/Shuruhatik/writerx/issues"
   },
-  "homepage": "https://github.com/Shuruhatik/steno.x#readme",
+  "homepage": "https://github.com/Shuruhatik/writerx#readme",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
