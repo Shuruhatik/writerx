@@ -5,5 +5,4 @@ tsconfig.json
 *.tmp
 .DS_Store
 node_modules/
-test-*.json
 data.json
