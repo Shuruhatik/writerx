@@ -3,21 +3,21 @@ import { mkdtemp, writeFile } from 'fs/promises'
 import os from 'os'
 import path from 'path'
 import { Writer as StenoWriter } from 'steno'
-import { Writer as StenoxWriter } from './index.js'
+import { Writer as StenoXWriter } from './index.js'
 
 async function benchmark(data: string, msg: string): Promise<void> {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'benchmark-'))
   
   const fsLabel = '  fs                    '
   const stenoLabel = '  steno                 '
-  const stenoxLabel = '  stenox (local)        '
+  const stenoxLabel = '  steno.x (local)       '
   
   const fsFile = path.join(dir, 'fs.txt')
   const stenoFile = path.join(dir, 'steno.txt')
-  const stenoxFile = path.join(dir, 'stenox.txt')
+  const stenoxFile = path.join(dir, 'steno.x.txt')
   
   const steno = new StenoWriter(stenoFile)
-  const stenox = new StenoxWriter(stenoxFile)
+  const stenox = new StenoXWriter(stenoxFile)
 
   console.log(msg)
   console.log()
@@ -51,7 +51,7 @@ async function benchmark(data: string, msg: string): Promise<void> {
   console.log()
   console.log('  Verification:')
   console.log('    fs = steno                 ', fsContent === stenoContent ? '✓' : '✗')
-  console.log('    fs = stenox                ', fsContent === stenoxContent ? '✓' : '✗')
+  console.log('    fs = steno.x               ', fsContent === stenoxContent ? '✓' : '✗')
   console.log('    All writers match          ', 
     fsContent === stenoContent && 
     fsContent === stenoxContent ? '✓' : '✗')
@@ -64,13 +64,13 @@ async function benchmarkBurst(data: string, msg: string): Promise<void> {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'benchmark-'))
   
   const stenoLabel = '  steno                 '
-  const stenoxLabel = '  stenox (local)        '
+  const stenoxLabel = '  steno.x (local)       '
   
   const stenoFile = path.join(dir, 'steno.txt')
-  const stenoxFile = path.join(dir, 'stenox.txt')
+  const stenoxFile = path.join(dir, 'steno.x.txt')
   
   const steno = new StenoWriter(stenoFile)
-  const stenox = new StenoxWriter(stenoxFile)
+  const stenox = new StenoXWriter(stenoxFile)
 
   console.log(msg)
   console.log()
@@ -101,13 +101,13 @@ async function benchmarkSequential(data: string, msg: string): Promise<void> {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'benchmark-'))
   
   const stenoLabel = '  steno                 '
-  const stenoxLabel = '  stenox (local)        '
+  const stenoxLabel = '  steno.x (local)       '
   
   const stenoFile = path.join(dir, 'steno.txt')
-  const stenoxFile = path.join(dir, 'stenox.txt')
+  const stenoxFile = path.join(dir, 'steno.x.txt')
   
   const steno = new StenoWriter(stenoFile)
-  const stenox = new StenoxWriter(stenoxFile)
+  const stenox = new StenoXWriter(stenoxFile)
 
   // Warmup
   await steno.write('warmup')

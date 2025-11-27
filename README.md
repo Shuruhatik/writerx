@@ -1,4 +1,4 @@
-stenox [![NPM version](https://img.shields.io/npm/v/stenox.svg?style=flat-square&color=informational)](https://npmjs.com/package/stenox)
+steno.x [![NPM version](https://img.shields.io/npm/v/steno.x.svg?style=flat-square&color=informational)](https://npmjs.com/package/steno.x)
 ======
 
 
@@ -6,9 +6,9 @@ stenox [![NPM version](https://img.shields.io/npm/v/stenox.svg?style=flat-square
 
 Ensures atomic file writes using the [write-rename pattern](https://en.wikipedia.org/wiki/Atomic_operation) with write coalescing to prevent race conditions. Multiple concurrent writes are automatically merged, ensuring only the latest data is written safely.
 
-## Why stenox?
+## Why steno.x?
 
-stenox is built on the same proven algorithm as steno, but with performance optimizations that make it **2-3x faster** in most scenarios:
+steno.x is built on the same proven algorithm as steno, but with performance optimizations that make it **2-3x faster** in most scenarios:
 
 - ✅ **Faster**: 2-3x performance improvement over steno
 - ✅ **Same reliability**: Uses the same atomic write strategy (temp file + rename)
@@ -20,10 +20,10 @@ stenox is built on the same proven algorithm as steno, but with performance opti
 Install with [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com) / [pnpm](https://pnpm.js.org/) / [bun](https://bun.sh/):
 
 ```sh
-npm install stenox
-yarn add stenox
-pnpm add stenox
-bun install stenox
+npm install steno.x
+yarn add steno.x
+pnpm add steno.x
+bun install steno.x
 ```
 
 ## Usage
@@ -31,19 +31,19 @@ bun install stenox
 Using [Node.js](https://nodejs.org/) `require()`:
 
 ```js
-const { Writer } = require('stenox');
+const { Writer } = require('steno.x');
 ```
 
 [TypeScript](https://www.typescriptlang.org/)/ES Module support:
 
 ```ts
-import { Writer } from 'stenox';
+import { Writer } from 'steno.x';
 ```
 
 [Deno](https://deno.land):
 
 ```js
-import { Writer } from 'https://esm.sh/stenox';
+import { Writer } from 'https://esm.sh/steno.x';
 ```
 
 ## Examples
@@ -51,7 +51,7 @@ import { Writer } from 'https://esm.sh/stenox';
 ### Basic Usage
 
 ```typescript
-import { Writer } from 'stenox'
+import { Writer } from 'steno.x'
 
 const writer = new Writer('data.json')
 
@@ -85,8 +85,8 @@ await writer.write(Buffer.from('binary data'))
 
 Benchmarked against steno (lower is better):
 
-| Test | steno | stenox | Result |
-|------|-------|--------|--------|
+| Test | steno | steno.x | Result |
+|------|-------|---------|--------|
 | 1KB × 1000 parallel | 4-9ms | 2.5-4.4ms | **2x faster** 🚀 |
 | 1MB × 1000 parallel | 6-11ms | 6-7ms | **1.5x faster** ⚡ |
 | 100B × 10000 burst | 25-33ms | 7-14ms | **3x faster** 🔥 |
@@ -97,11 +97,11 @@ Benchmarked against steno (lower is better):
 - Your results may differ based on hardware and system conditions
 - Run `npm run benchmark` to test on your machine
 
-**Key takeaway**: stenox consistently performs 1.5-3x faster than steno across different workloads.
+**Key takeaway**: steno.x consistently performs 1.5-3x faster than steno across different workloads.
 
 ## How it works
 
-stenox uses the proven **atomic write pattern** (also known as write-rename or safe-write):
+steno.x uses the proven **atomic write pattern** (also known as write-rename or safe-write):
 
 1. **Write to temp file**: Data is written to `.filename.tmp`
 2. **Atomic rename**: The temp file is renamed to the target file (atomic operation at OS level)
@@ -168,7 +168,7 @@ console.log(writer.path) // 'data.json'
 
 ## Relationship to steno
 
-stenox is inspired by and based on [steno](https://github.com/typicode/steno) by [@typicode](https://github.com/typicode). 
+steno.x is inspired by and based on [steno](https://github.com/typicode/steno) by [@typicode](https://github.com/typicode). 
 
 **What's the same:**
 - Core atomic write algorithm (temp file + rename)
@@ -181,7 +181,7 @@ stenox is inspired by and based on [steno](https://github.com/typicode/steno) by
 - Optimized promise handling
 - Cleaner variable names for better code readability
 
-If you need a battle-tested solution, use [steno](https://github.com/typicode/steno). If you want better performance with the same reliability, use stenox.
+If you need a battle-tested solution, use [steno](https://github.com/typicode/steno). If you want better performance with the same reliability, use steno.x.
 
 ## License
 MIT
