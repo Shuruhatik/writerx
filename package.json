@@ -1,0 +1,44 @@
+{
+  "name": "stenox",
+  "version": "0.1.0",
+  "description": "Atomic file writer with write coalescing for safe concurrent file operations - faster than steno",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "benchmark": "npm run build && node dist/benchmark.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "atomic",
+    "file",
+    "writer",
+    "safe",
+    "concurrent",
+    "filesystem",
+    "steno",
+    "stenox",
+    "fast"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "steno": "^4.0.2",
+    "stonex": "^0.1.3",
+    "typescript": "^5.9.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
